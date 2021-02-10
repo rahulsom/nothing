@@ -1,6 +1,8 @@
 plugins {
-  id ("java")
+  id("java")
 }
+
+apply(from = "../gradle/publishModule.gradle.kts")
 
 repositories {
   mavenCentral()

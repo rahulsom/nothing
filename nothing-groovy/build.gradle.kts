@@ -2,6 +2,8 @@ plugins {
   id("groovy")
 }
 
+apply(from = "../gradle/publishModule.gradle.kts")
+
 repositories {
   mavenCentral()
 }
