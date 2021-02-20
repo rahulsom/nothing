@@ -1,3 +1,5 @@
+import java.net.URI
+
 buildscript {
   repositories {
     gradlePluginPortal()
@@ -86,7 +88,17 @@ configure<PublishingExtension> {
       val snapshotsRepoUrl = "${rootProject.buildDir}/repos/snapshots"
       url = file(if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl).toURI()
     }
+    maven {
+      name = "central"
+      val releasesRepoUrl = URI("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+      val snapshotsRepoUrl = URI("https://oss.sonatype.org/content/repositories/snapshots/")
+      url = if (version.toString().endsWith("SNAPSHOT")) snapshotsRepoUrl else releasesRepoUrl
+      credentials {
+        username = project.findProperty("sonatypeUsername") as String
+        password = project.findProperty("sonatypePassword") as String
+      }
+    }
   }
 }
 
-rootProject.tasks.getByPath("release").dependsOn(":${project.name}:publishMavenPublicationToLocalRepository")
+rootProject.tasks.getByPath("release").dependsOn(":${project.name}:publish")
