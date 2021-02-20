@@ -38,7 +38,7 @@ fun signProject(project: Project) {
   println("Configuring signing for module ${project}")
 
   project.configure<SigningExtension> {
-    setRequired({ project.gradle.taskGraph.hasTask("required") })
+    setRequired({ project.gradle.taskGraph.hasTask("candidate") || project.gradle.taskGraph.hasTask("release") })
     val signingKeyId = project.findProperty("signingKeyId") as String?
     val signingKey = project.findProperty("signingKey") as String?
     val signingPassword = project.findProperty("signingPassword") as String?
