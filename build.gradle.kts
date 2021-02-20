@@ -5,4 +5,6 @@ plugins {
   id("de.marcphilipp.nexus-publish") version "0.4.0"
 }
 
-group = "com.github.rahulsom"
+allprojects {
+  group = "com.github.rahulsom"
+}
