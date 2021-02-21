@@ -28,5 +28,6 @@ allprojects {
   }
 }
 
-tasks.getByPath("candidate").dependsOn("closeAndReleaseRepository")
-tasks.getByPath("final").dependsOn("closeAndReleaseRepository")
+listOf("candidate", "final").forEach {
+  tasks.getByPath(it).dependsOn("closeAndReleaseRepository")
+}
