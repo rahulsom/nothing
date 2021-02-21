@@ -1,8 +1,12 @@
+import com.github.rahulsom.waena.WaenaPublished
+
 plugins {
   id("java")
 }
 
-apply(from = "../gradle/publishModule.gradle.kts")
+apply {
+  plugin<WaenaPublishedPlugin>()
+}
 
 repositories {
   mavenCentral()

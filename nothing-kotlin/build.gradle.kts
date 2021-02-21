@@ -1,8 +1,12 @@
+import com.github.rahulsom.waena.WaenaPublished
+
 plugins {
   id("org.jetbrains.kotlin.jvm") version "1.4.30"
 }
 
-apply(from = "../gradle/publishModule.gradle.kts")
+apply {
+  plugin<WaenaPublishedPlugin>()
+}
 
 repositories {
   mavenCentral()
