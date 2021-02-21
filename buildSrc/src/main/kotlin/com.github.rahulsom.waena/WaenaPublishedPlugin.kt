@@ -37,34 +37,6 @@ class WaenaPublishedPlugin : Plugin<Project> {
       signProject(target)
     }
 
-    target.plugins.withType(MavenPublishPlugin::class.java).forEach {
-      val publishing = target.extensions.getByType<PublishingExtension>()
-      publishing.publications.withType(MavenPublication::class.java).forEach { mavenPublication ->
-        mavenPublication.pom {
-          name.set("${target.group}:${target.name}")
-          description.set(name)
-          url.set("https://github.com/rahulsom/${target.rootProject.name}")
-          licenses {
-            license {
-              name.set("The Apache License, Version 2.0")
-              url.set("https://www.apache.org/licenses/LICENSE-2.0")
-            }
-          }
-          developers {
-            developer {
-              id.set("rahulsom")
-              name.set("Rahul Somasunderam")
-              email.set("rahulsom@noreply.github.com")
-            }
-          }
-          scm {
-            connection.set("scm:git:https://github.com/rahulsom/${target.rootProject.name}")
-            developerConnection.set("scm:git:ssh://github.com/rahulsom/${target.rootProject.name}.git")
-            url.set("https://github.com/rahulsom/${target.rootProject.name}")
-          }
-        }
-      }
-    }
 
     target.configure<PublishingExtension> {
       repositories {
@@ -76,6 +48,9 @@ class WaenaPublishedPlugin : Plugin<Project> {
         }
       }
     }
+
+    val waenaExtension = target.rootProject.extensions.getByType(WaenaExtension::class.java)
+    configurePom(target, waenaExtension)
 
     target.rootProject.tasks.getByPath("release").dependsOn(":${target.name}:publish")
     target.rootProject.tasks.getByPath("closeRepository").mustRunAfter(":${target.name}:publish")
@@ -93,6 +68,42 @@ class WaenaPublishedPlugin : Plugin<Project> {
         useInMemoryPgpKeys(signingKey, signingPassword!!)
       }
       sign(project.extensions.getByType<PublishingExtension>().publications.getByName("maven"))
+    }
+  }
+
+  private fun configurePom(project: Project, waenaExtension: WaenaExtension) {
+    val repoKey = "${waenaExtension.githubUserOrOrg.get()}/${waenaExtension.githubRepository.get()}"
+    project.plugins.withType(MavenPublishPlugin::class.java).forEach {
+      val publishing = project.extensions.getByType<PublishingExtension>()
+      publishing.publications.withType(MavenPublication::class.java).forEach { mavenPublication ->
+        mavenPublication.pom {
+          name.set("${project.group}:${project.name}")
+          description.set(name)
+          url.set("https://github.com/$repoKey")
+          licenses {
+            license {
+              name.set("The Apache License, Version 2.0")
+              url.set("https://www.apache.org/licenses/LICENSE-2.0")
+            }
+          }
+          developers {
+            developer {
+              id.set("rahulsom")
+              name.set("Rahul Somasunderam")
+              email.set("rahulsom@noreply.github.com")
+            }
+          }
+          scm {
+            connection.set("scm:git:https://github.com/$repoKey")
+            developerConnection.set("scm:git:ssh://github.com/$repoKey.git")
+            url.set("https://github.com/$repoKey")
+          }
+          issueManagement {
+            this.system.set("github")
+            this.url.set("https://github.com/$repoKey/issues")
+          }
+        }
+      }
     }
   }
 

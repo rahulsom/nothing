@@ -1,4 +1,4 @@
-import com.github.rahulsom.waena.WaenaPublished
+import com.github.rahulsom.waena.WaenaPublishedPlugin
 
 plugins {
   id("java")

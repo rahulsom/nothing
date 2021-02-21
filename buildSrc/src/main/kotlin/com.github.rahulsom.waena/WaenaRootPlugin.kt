@@ -8,39 +8,50 @@ import de.marcphilipp.gradle.nexus.NexusPublishPlugin
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.publish.PublishingExtension
+import org.gradle.api.publish.maven.MavenPublication
+import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.getByType
 import java.time.Duration
 
-open class WaenaRootPlugin : Plugin<Project> {
+class WaenaRootPlugin : Plugin<Project> {
   override fun apply(target: Project) {
     if (target.rootProject != target) {
       throw GradleException("WaenaRoot can only be applied to a root project")
     }
-    target.plugins.apply("signing")
-    target.plugins.apply(ReleasePlugin::class.java)
-    target.plugins.apply(NexusStagingPlugin::class.java)
+    configureRootProject(target)
+  }
 
-    target.allprojects {
-      this.plugins.apply(NexusPublishPlugin::class.java)
+  private fun configureRootProject(rootProject: Project) {
+    rootProject.plugins.apply("signing")
+    rootProject.plugins.apply(ReleasePlugin::class.java)
+    rootProject.plugins.apply(NexusStagingPlugin::class.java)
 
-      this.configure<NexusPublishExtension> {
+    val waenaExtension = rootProject.extensions.create("waena", WaenaExtension::class.java, rootProject)
+
+    rootProject.allprojects.forEach { target ->
+      target.plugins.apply(NexusPublishPlugin::class.java)
+
+      target.configure<NexusPublishExtension> {
         repositories {
           sonatype()
         }
         connectTimeout.set(Duration.ofMinutes(3))
         clientTimeout.set(Duration.ofMinutes(3))
       }
+
     }
 
-    target.configure<NexusStagingExtension>() {
-      username = target.findProperty("sonatypeUsername") as String
-      password = target.findProperty("sonatypePassword") as String
-      repositoryDescription = "Release ${target.group} ${target.version}"
+    rootProject.configure<NexusStagingExtension>() {
+      username = rootProject.findProperty("sonatypeUsername") as String
+      password = rootProject.findProperty("sonatypePassword") as String
+      repositoryDescription = "Release ${rootProject.group} ${rootProject.version}"
     }
 
     listOf("candidate", "final").forEach {
-      target.tasks.getByPath(it).dependsOn("closeAndReleaseRepository")
+      rootProject.tasks.getByPath(it).dependsOn("closeAndReleaseRepository")
     }
-
   }
+
 }

@@ -1,4 +1,4 @@
-import com.github.rahulsom.waena.WaenaPublished
+import com.github.rahulsom.waena.WaenaPublishedPlugin
 
 plugins {
   id("org.jetbrains.kotlin.jvm") version "1.4.30"
