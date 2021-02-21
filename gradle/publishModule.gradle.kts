@@ -89,3 +89,4 @@ configure<PublishingExtension> {
 }
 
 rootProject.tasks.getByPath("release").dependsOn(":${project.name}:publish")
+rootProject.tasks.getByPath("closeAndReleaseRepository").dependsOn(":${project.name}:publish")

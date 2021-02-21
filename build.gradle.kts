@@ -27,3 +27,6 @@ allprojects {
     clientTimeout.set(Duration.ofMinutes(3))
   }
 }
+
+tasks.getByPath("candidate").dependsOn("closeAndReleaseRepository")
+tasks.getByPath("final").dependsOn("closeAndReleaseRepository")
