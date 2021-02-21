@@ -10,6 +10,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import java.time.Duration
+import nebula.plugin.contacts.ContactsPlugin
 
 class WaenaRootPlugin : Plugin<Project> {
   override fun apply(target: Project) {
@@ -27,7 +28,8 @@ class WaenaRootPlugin : Plugin<Project> {
     val waenaExtension = rootProject.extensions.create("waena", WaenaExtension::class.java, rootProject)
 
     rootProject.allprojects.forEach { target ->
-      target.plugins.apply(NexusPublishPlugin::class.java)
+      target.plugins.apply<NexusPublishPlugin>(NexusPublishPlugin::class.java)
+      target.plugins.apply(ContactsPlugin::class.java)
 
       target.configure<NexusPublishExtension> {
         repositories {

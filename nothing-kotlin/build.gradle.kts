@@ -18,3 +18,5 @@ dependencies {
 
   testImplementation("io.strikt:strikt-core:0.29.0")
 }
+
+project.description = "Kotlin Library for Nothing"
