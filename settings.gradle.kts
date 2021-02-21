@@ -9,4 +9,4 @@
 
 rootProject.name = "nothing"
 
-include("nothing-java", "nothing-groovy", "nothing-kotlin", "nothing-unpublished")
+include("nothing-java", "nothing-groovy", "nothing-kotlin", "nothing-internal")

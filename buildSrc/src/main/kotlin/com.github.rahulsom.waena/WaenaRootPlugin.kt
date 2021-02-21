@@ -1,18 +1,14 @@
 package com.github.rahulsom.waena
 
 import de.marcphilipp.gradle.nexus.NexusPublishExtension
-import nebula.plugin.release.ReleasePlugin
-import io.codearte.gradle.nexus.NexusStagingPlugin
-import io.codearte.gradle.nexus.NexusStagingExtension
 import de.marcphilipp.gradle.nexus.NexusPublishPlugin
+import io.codearte.gradle.nexus.NexusStagingExtension
+import io.codearte.gradle.nexus.NexusStagingPlugin
+import nebula.plugin.release.ReleasePlugin
 import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.publish.PublishingExtension
-import org.gradle.api.publish.maven.MavenPublication
-import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.getByType
 import java.time.Duration
 
 class WaenaRootPlugin : Plugin<Project> {
