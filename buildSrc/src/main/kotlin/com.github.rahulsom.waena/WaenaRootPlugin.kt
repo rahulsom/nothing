@@ -25,7 +25,7 @@ class WaenaRootPlugin : Plugin<Project> {
     rootProject.plugins.apply(ReleasePlugin::class.java)
     rootProject.plugins.apply(NexusStagingPlugin::class.java)
 
-    val waenaExtension = rootProject.extensions.create("waena", WaenaExtension::class.java, rootProject)
+    rootProject.extensions.create("waena", WaenaExtension::class.java, rootProject)
 
     rootProject.allprojects.forEach { target ->
       target.plugins.apply<NexusPublishPlugin>(NexusPublishPlugin::class.java)

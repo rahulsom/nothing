@@ -13,6 +13,7 @@ import org.gradle.api.publish.maven.plugins.MavenPublishPlugin
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.plugins.signing.SigningExtension
+import java.util.*
 import nebula.plugin.publishing.maven.MavenPublishPlugin as NebulaMavenPublishPlugin
 
 class WaenaPublishedPlugin : Plugin<Project> {
@@ -28,7 +29,9 @@ class WaenaPublishedPlugin : Plugin<Project> {
       withSourcesJar()
     }
 
-    val hasSigningKey = target.hasProperty("signing.keyId") || target.findProperty("signingKey") != null
+    val hasSigningKey = target.hasProperty("signing.keyId")
+        || target.findProperty("signingKey") != null
+        || target.findProperty("signingKeyB64") != null
 
     if (hasSigningKey) {
       signProject(target)
@@ -57,8 +60,12 @@ class WaenaPublishedPlugin : Plugin<Project> {
   fun signProject(project: Project) {
     project.configure<SigningExtension> {
       val signingKeyId = project.findProperty("signingKeyId") as String?
-      val signingKey = project.findProperty("signingKey") as String?
+      val signingKeyRaw = project.findProperty("signingKey") as String?
+      val signingKeyB64 = project.findProperty("signingKeyB64") as String?
+
+      val signingKey = signingKeyRaw ?: signingKeyB64?.let { String(Base64.getDecoder().decode(it)) }
       val signingPassword = project.findProperty("signingPassword") as String?
+
       if (signingKeyId != null) {
         useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
       } else if (signingKey != null) {
