@@ -42,8 +42,8 @@ class WaenaRootPlugin : Plugin<Project> {
     }
 
     rootProject.configure<NexusStagingExtension>() {
-      username = rootProject.findProperty("sonatypeUsername") as String
-      password = rootProject.findProperty("sonatypePassword") as String
+      username = rootProject.findProperty("sonatypeUsername") as String?
+      password = rootProject.findProperty("sonatypePassword") as String?
       repositoryDescription = "Release ${rootProject.group} ${rootProject.version}"
     }
 
