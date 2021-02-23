@@ -34,4 +34,4 @@ jobs:
           java-version: 1.8
 
       - name: Build with Gradle
-        run: ./gradlew check build --stacktrace
+        run: ./gradlew check build --stacktrace --parallel
