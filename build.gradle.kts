@@ -19,3 +19,11 @@ configure<ContactsExtension> {
     github("https://github.com/rahulsom")
   }))
 }
+
+gradleEnterprise {
+  buildScan {
+    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    termsOfServiceAgree = "yes"
+    publishAlwaysIf(!System.getenv("CI").isNullOrEmpty())
+  }
+}
