@@ -7,6 +7,10 @@
  * in the user manual at https://docs.gradle.org/6.8/userguide/multi_project_builds.html
  */
 
+plugins {
+  id("com.gradle.enterprise") version "3.5.2"
+}
+
 rootProject.name = "nothing"
 
 include("nothing-java", "nothing-groovy", "nothing-kotlin", "nothing-internal")
