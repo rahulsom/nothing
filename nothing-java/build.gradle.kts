@@ -20,3 +20,7 @@ dependencies {
 }
 
 project.description = "Java Library for Nothing"
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+}
