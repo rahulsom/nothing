@@ -1,11 +1,6 @@
-import com.github.rahulsom.waena.WaenaPublishedPlugin
-
 plugins {
   id("groovy")
-}
-
-apply {
-  plugin<WaenaPublishedPlugin>()
+  id("com.github.rahulsom.waena.published")
 }
 
 repositories {
