@@ -1,14 +1,11 @@
 plugins {
   id("com.github.rahulsom.waena.root") version "0.2.0"
 }
+
 import com.github.rahulsom.waena.WaenaExtension
 import com.github.rahulsom.waena.WaenaRootPlugin
 import nebula.plugin.contacts.ContactsExtension
 import nebula.plugin.contacts.Contact
-
-apply {
-  plugin<WaenaRootPlugin>()
-}
 
 allprojects {
   group = "com.github.rahulsom"
