@@ -13,7 +13,7 @@ dependencies {
   implementation("org.apache.commons:commons-lang3:3.12.0")
   api("org.apache.commons:commons-math3:3.6.1")
 
-  testImplementation("io.strikt:strikt-core:0.30.0")
+  testImplementation("io.strikt:strikt-core:0.30.1")
 }
 
 project.description = "Kotlin Library for Nothing"
