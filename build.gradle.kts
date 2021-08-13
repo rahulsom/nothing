@@ -1,5 +1,5 @@
 plugins {
-  id("com.github.rahulsom.waena.root") version "0.3.0"
+  id("com.github.rahulsom.waena.root") version "0.4.0"
 }
 
 import com.github.rahulsom.waena.WaenaExtension
