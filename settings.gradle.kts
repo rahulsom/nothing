@@ -8,7 +8,7 @@
  */
 
 plugins {
-  id("com.gradle.enterprise") version "3.6.3"
+  id("com.gradle.enterprise") version "3.6.4"
 }
 
 rootProject.name = "nothing"
