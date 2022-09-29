@@ -12,7 +12,7 @@ dependencies {
   implementation("org.apache.commons:commons-lang3:3.12.0")
   api("org.apache.commons:commons-math3:3.6.1")
 
-  testImplementation("org.spockframework:spock-core:2.2-groovy-4.0")
+  testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
 }
 
 project.description = "Groovy Library for Nothing"
