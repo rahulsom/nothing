@@ -1,5 +1,3 @@
-import com.gradle.scan.plugin.PublishedBuildScan
-
 plugins {
     id("com.gradle.develocity") version "3.17.6"
 }
