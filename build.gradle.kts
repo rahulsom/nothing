@@ -2,7 +2,7 @@ import nebula.plugin.contacts.Contact
 import nebula.plugin.contacts.ContactsExtension
 
 plugins {
-  id("com.github.rahulsom.waena.root") version "0.6.5"
+  id("com.github.rahulsom.waena.root") version "0.6.7"
 }
 
 allprojects {
