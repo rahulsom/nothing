@@ -2,11 +2,11 @@ import nebula.plugin.contacts.Contact
 import nebula.plugin.contacts.ContactsExtension
 
 plugins {
-  id("com.github.rahulsom.waena.root") version "0.9.1"
+  id("com.github.rahulsom.waena.root") version "0.9.2"
 }
 
 allprojects {
-  group = "com.github.rahulsom"
+  group = "io.github.rahulsom"
 }
 
 configure<ContactsExtension> {
@@ -16,4 +16,8 @@ configure<ContactsExtension> {
     roles("owner")
     github("https://github.com/rahulsom")
   })
+}
+
+waena {
+  useCentralPortal.set(true)
 }
