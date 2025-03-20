@@ -1,6 +1,6 @@
 plugins {
   id("java-library")
-  id("org.jetbrains.kotlin.jvm") version "2.1.10"
+  id("org.jetbrains.kotlin.jvm") version "2.1.20"
   id("com.github.rahulsom.waena.published")
 }
 
