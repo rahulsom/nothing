@@ -1,7 +1,9 @@
 {
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "automerge": true
 }
