@@ -1,8 +1,9 @@
+import com.github.rahulsom.waena.WaenaExtension
 import nebula.plugin.contacts.Contact
 import nebula.plugin.contacts.ContactsExtension
 
 plugins {
-  id("com.github.rahulsom.waena.root") version "0.9.2"
+  id("com.github.rahulsom.waena.root") version "0.12.0"
 }
 
 allprojects {
@@ -19,5 +20,6 @@ configure<ContactsExtension> {
 }
 
 waena {
-  useCentralPortal.set(true)
+  license.set(WaenaExtension.License.Apache2)
+  publishMode.set(WaenaExtension.PublishMode.Central)
 }
