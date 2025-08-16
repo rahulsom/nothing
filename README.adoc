@@ -1,0 +1,75 @@
+= Nothing
+:snapshot-prefix: image:https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2Fio%2Fgithub%2Frahulsom%2F
+:snapshot-middle: %2Fmaven-metadata.xml&style=for-the-badge&label=S[alt=Maven Snapshot,height=30,link="https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/io/github/rahulsom/
+:snapshot-suffix: /"]
+:central-prefix: image:https://img.shields.io/maven-central/v/io.github.rahulsom/
+:central-middle: ?style=for-the-badge&label=R&color=green[alt=Maven Central Version,height=30,link="https://central.sonatype.com/artifact/io.github.rahulsom/
+:central-suffix: /overview"]
+:deprecated-middle: ?style=for-the-badge&label=R&color=lightgrey[alt=Maven Central Version,height=30,link="https://central.sonatype.com/artifact/io.github.rahulsom/
+
+Nothing to see here, move along.
+
+image:https://img.shields.io/github/commits-since/rahulsom/nothing/latest?style=for-the-badge[GitHub commits since latest release, link="https://github.com/rahulsom/nothing/releases/new"]
+
+== Usage
+
+For releases, use mavenCentral.
+
+[source]
+----
+https://repo.maven.apache.org/maven2/
+----
+
+For snapshots, use this url.
+
+[source]
+----
+https://central.sonatype.com/repository/maven-snapshots/
+----
+
+The maven group id is `io.github.rahulsom`.
+
+The maven artifact id is `nothing-<flavor>`.
+
+The `api-type` is one of `java`, `kotlin`, or `groovy`.
+
+.Example in a gradle kotlin build script
+[%collapsible]
+====
+[source,kotlin]
+----
+ext {
+    set("nothingVersion", "0.2.0")
+}
+
+dependencies {
+    implementation("io.github.rahulsom:nothing-java:${property("nothingVersion")}")
+    implementation("io.github.rahulsom:nothing-kotlin:${property("nothingVersion")}")
+    implementation("io.github.rahulsom:nothing-groovy:${property("nothingVersion")}")
+}
+----
+====
+
+== Available versions
+
+|===
+|GitHub Version |Version
+
+|Java
+|{central-prefix}nothing-java{central-middle}nothing-java{central-suffix} {snapshot-prefix}nothing-java{snapshot-middle}nothing-java{snapshot-suffix}
+
+|Kotlin
+|{central-prefix}nothing-kotlin{central-middle}nothing-kotlin{central-suffix} {snapshot-prefix}nothing-kotlin{snapshot-middle}nothing-kotlin{snapshot-suffix}
+
+|Groovy
+|{central-prefix}nothing-groovy{central-middle}nothing-groovy{central-suffix} {snapshot-prefix}nothing-groovy{snapshot-middle}nothing-groovy{snapshot-suffix}
+
+|===
+
+====
+
+== Development
+
+Install JDK 21 first.
+
+To build, run `./gradlew build`.
