@@ -53,7 +53,7 @@ dependencies {
 == Available versions
 
 |===
-|GitHub Version |Version
+|Flavor |Version
 
 |Java
 |{central-prefix}nothing-java{central-middle}nothing-java{central-suffix} {snapshot-prefix}nothing-java{snapshot-middle}nothing-java{snapshot-suffix}
@@ -65,8 +65,6 @@ dependencies {
 |{central-prefix}nothing-groovy{central-middle}nothing-groovy{central-suffix} {snapshot-prefix}nothing-groovy{snapshot-middle}nothing-groovy{snapshot-suffix}
 
 |===
-
-====
 
 == Development
 
