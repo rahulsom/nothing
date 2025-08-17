@@ -2,7 +2,7 @@
 :package: io.github.rahulsom
 :package-path: io/github/rahulsom
 :package-path-encoded: io%2Fgithub%2Frahulsom
-:snapshot-prefix: image:https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2F{package-path-encoded}
+:snapshot-prefix: image:https://img.shields.io/maven-metadata/v?metadataUrl=https%3A%2F%2Fcentral.sonatype.com%2Frepository%2Fmaven-snapshots%2F{package-path-encoded}%2F
 :snapshot-middle: %2Fmaven-metadata.xml&style=for-the-badge&label=S[alt=Maven Snapshot,height=30,link="https://central.sonatype.com/service/rest/repository/browse/maven-snapshots/{package-path}
 :snapshot-suffix: /"]
 :central-prefix: image:https://img.shields.io/maven-central/v/{package}/
