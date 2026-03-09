@@ -9,10 +9,10 @@ repositories {
 }
 
 dependencies {
-  implementation("org.apache.commons:commons-lang3:3.20.0")
-  api("org.apache.commons:commons-math3:3.6.1")
+  implementation(libs.commons.lang3)
+  api(libs.commons.math3)
 
-  testImplementation("org.spockframework:spock-core:2.4-groovy-5.0")
+  testImplementation(libs.spock.core)
 }
 
 project.description = "Groovy Library for Nothing"
