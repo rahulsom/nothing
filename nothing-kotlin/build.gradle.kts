@@ -1,7 +1,7 @@
 plugins {
   id("java-library")
   alias(libs.plugins.kotlin.jvm)
-  id("com.github.rahulsom.waena.published")
+  alias(libs.plugins.waena.published)
 }
 
 repositories {

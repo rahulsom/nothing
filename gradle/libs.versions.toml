@@ -19,6 +19,6 @@ spock-core = { group = "org.spockframework", name = "spock-core", version.ref = 
 strikt-core = { group = "io.strikt", name = "strikt-core", version.ref = "strikt" }
 
 [plugins]
-develocity = { id = "com.gradle.develocity", version.ref = "develocity" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 waena-root = { id = "com.github.rahulsom.waena.root", version.ref = "waena" }
+waena-published = { id = "com.github.rahulsom.waena.published" }
