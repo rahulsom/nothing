@@ -5,6 +5,13 @@ package com.github.rahulsom.nothing.java;
  */
 public class Foo {
   /**
+   * Default constructor for Foo.
+   */
+  public Foo() {
+    // No-op constructor
+  }
+
+  /**
    * A simple method to test Java compilation
    * @param a First number
    * @param b Second number
