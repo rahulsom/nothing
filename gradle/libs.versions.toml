@@ -1,0 +1,24 @@
+[versions]
+apache-commons-lang = "3.20.0"
+apache-commons-math = "3.6.1"
+develocity = "4.3.2"
+junit-jupiter = "6.0.3"
+junit-platform = "6.0.3"
+kotlin = "2.3.10"
+spock = "2.4-groovy-5.0"
+strikt = "0.35.1"
+waena = "0.23.0"
+
+[libraries]
+commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "apache-commons-lang" }
+commons-math3 = { group = "org.apache.commons", name = "commons-math3", version.ref = "apache-commons-math" }
+junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit-jupiter" }
+junit-jupiter-engine = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit-jupiter" }
+junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit-platform" }
+spock-core = { group = "org.spockframework", name = "spock-core", version.ref = "spock" }
+strikt-core = { group = "io.strikt", name = "strikt-core", version.ref = "strikt" }
+
+[plugins]
+develocity = { id = "com.gradle.develocity", version.ref = "develocity" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+waena-root = { id = "com.github.rahulsom.waena.root", version.ref = "waena" }

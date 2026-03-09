@@ -1,6 +1,6 @@
 plugins {
   id("java-library")
-  id("org.jetbrains.kotlin.jvm") version "2.3.10"
+  alias(libs.plugins.kotlin.jvm)
   id("com.github.rahulsom.waena.published")
 }
 
@@ -9,10 +9,10 @@ repositories {
 }
 
 dependencies {
-  implementation("org.apache.commons:commons-lang3:3.20.0")
-  api("org.apache.commons:commons-math3:3.6.1")
+  implementation(libs.commons.lang3)
+  api(libs.commons.math3)
 
-  testImplementation("io.strikt:strikt-core:0.35.1")
+  testImplementation(libs.strikt.core)
 }
 
 project.description = "Kotlin Library for Nothing"

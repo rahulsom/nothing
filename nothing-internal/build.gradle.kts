@@ -7,8 +7,8 @@ repositories {
 }
 
 dependencies {
-  implementation("org.apache.commons:commons-lang3:3.20.0")
+  implementation(libs.commons.lang3)
 
-  testImplementation("org.junit.jupiter:junit-jupiter-api:6.0.3")
-  testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:6.0.3")
+  testImplementation(libs.junit.jupiter.api)
+  testRuntimeOnly(libs.junit.jupiter.engine)
 }
