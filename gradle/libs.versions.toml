@@ -7,7 +7,7 @@ junit-platform = "6.0.3"
 kotlin = "2.3.21"
 spock = "2.4-groovy-5.0"
 strikt = "0.35.1"
-waena = "0.24.0"
+waena = "0.25.0"
 
 [libraries]
 commons-lang3 = { group = "org.apache.commons", name = "commons-lang3", version.ref = "apache-commons-lang" }
