@@ -7,6 +7,7 @@ on:
     branches: ['*']
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
+      - "v[0-9]+.[0-9]+.[0-9]+-rc.[0-9]+"
 
 jobs:
   build:
@@ -19,6 +20,7 @@ jobs:
     with:
       codeql: true
       codeql-actions: true
+      publish-candidates: true
     permissions:
       security-events: write
       actions: read
