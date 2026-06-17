@@ -20,5 +20,5 @@ contacts {
 
 waena {
   license.set(WaenaExtension.License.Apache2)
-  publishMode.set(WaenaExtension.PublishMode.Central)
+  publishModes.set(setOf(WaenaExtension.PublishMode.Central, WaenaExtension.PublishMode.GitHub))
 }
