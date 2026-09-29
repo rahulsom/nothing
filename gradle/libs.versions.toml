@@ -1,5 +1,5 @@
 [versions]
-apache-commons-lang = "3.20.0"
+apache-commons-lang = "3.21.0"
 apache-commons-math = "3.6.1"
 develocity = "4.3.2"
 junit-jupiter = "6.1.3"
